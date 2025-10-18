@@ -61,16 +61,16 @@ httpd -v
 Si devuelve la versión de Apache, todo está correcto.
 
 2. **Iniciar el servidor**
-´´´bash
+```bash
 sudo apachectl start
-´´´
+```
 
 3. **Verificar funcionamiento**
 
 Abre en el navegador:
-´´´bash
+```bash
 http://localhost
-´´´
+```
 Si aparece el mensaje “It works!”, Apache está corriendo.
 
 4. **Configurar el VirtualHost para el puerto 8080**
@@ -78,12 +78,12 @@ Si aparece el mensaje “It works!”, Apache está corriendo.
 Para no usar la carpeta del sistema (`/Library/WebServer/Documents`), configuré un **VirtualHost** personalizado que apunta a mi carpeta de trabajo y escucha en el puerto `8080`.
 
 Abrí el archivo de configuración de Virtual Hosts:
-´´´bash
+```bash
 sudo vim /etc/apache2/extra/httpd-vhosts.conf
-´´´
+```
 
 Y añadí lo siguiente al final del archivo:
-´´´bash
+```bash
 Listen 8080
 
 <VirtualHost *:8080>
@@ -99,18 +99,18 @@ Listen 8080
     ErrorLog "/private/var/log/apache2/html5_error.log"
     CustomLog "/private/var/log/apache2/html5_access.log" common
 </VirtualHost>
-´´´
+```
 
 
 5. **Reiniciar Apache para aplicar los cambios**
-´´´bash
+```bash
 sudo apachectl restart
-´´´
+```
 
 6. **Verificar que Apache escucha en el puerto 8080**
-´´´bash
+```bash
 sudo lsof -i :8080
-´´´
+```
 Si aparece un proceso de Apache en la lista, el servidor está en escucha correctamente.
 
 ---
@@ -126,21 +126,21 @@ significa que **Apache no tiene permisos para acceder a la ruta que configuraste
 
 Para solucionarlo, debes otorgar permisos de lectura y ejecución al usuario del servidor (`_www`) sobre tu carpeta del proyecto:
 
-´´´bash
+```bash
 chmod -R o+rX /Users/usuario/ruta/del/proyecto
-´´´
+```
 
 Esto permite que Apache pueda entrar en las carpetas y leer los archivos necesarios para mostrar la web.
 
 Después de aplicar los permisos, **reinicia Apache**:
-´´´bash
+```bash
 sudo apachectl restart
-´´´
+```
 
 Y vuelve a probar en el navegador:
-´´´bash
+```bash
 http://localhost:8080
-´´´
+```
 
 ---
 
