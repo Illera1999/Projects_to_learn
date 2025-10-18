@@ -54,9 +54,10 @@ Por tanto, solo fue necesario **configurarlo y activarlo** para que funcione cor
 Los pasos que seguí fueron los siguientes:
 
 1. **Comprobar que Apache está instalado**
-'''bash
+```bash
 httpd -v
-'''
+```
+
 Si devuelve la versión de Apache, todo está correcto.
 
 2. **Iniciar el servidor**
