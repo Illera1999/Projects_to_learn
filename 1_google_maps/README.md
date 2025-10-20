@@ -42,3 +42,4 @@ El propósito de este proyecto es aprender a integrar **HTML**, **Bootstrap** y 
 1. [🎯 Objetivos del reto](objetivos.md)
 2. [🧰 Tecnologías utilizadas](tecnologias.md)
 3. [🚀 Próximos pasos](pasos-previos.md)
+4. [🎨 Configuración y uso de Bootstrap](bootstrap-configuracion.md)
