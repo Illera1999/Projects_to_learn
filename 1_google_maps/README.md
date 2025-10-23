@@ -43,3 +43,4 @@ El propósito de este proyecto es aprender a integrar **HTML**, **Bootstrap** y 
 2. [🧰 Tecnologías utilizadas](tecnologias.md)
 3. [🚀 Próximos pasos](pasos-previos.md)
 4. [🎨 Configuración y uso de Bootstrap](bootstrap-configuracion.md)
+5. [🗺️ Integración de Google Maps API con JavaScript](google-maps-javascript.md)
