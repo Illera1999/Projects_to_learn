@@ -1,3 +1,4 @@
+
 # 🎨 Configuración y uso de Bootstrap
 
 Para el diseño del proyecto decidí usar **Bootstrap**, un framework CSS muy potente que permite crear estructuras visuales de forma sencilla y con un estilo moderno.
