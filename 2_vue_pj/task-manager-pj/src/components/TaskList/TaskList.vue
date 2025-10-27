@@ -1,13 +1,10 @@
 <script setup>
-
-import { ref } from "vue";
-
-const tasks = ref([
-    { text: "Uno", completed: false },
-    { text: "Dos", completed: false },
-    { text: "Tres", completed: false },
-    { text: "Cuatro", completed: false },
-])
+const props = defineProps({
+    tasks: {
+        type: Array,
+        required: true
+    }
+})
 </script>
 
 
@@ -28,11 +25,12 @@ const tasks = ref([
 </template>
 
 
-<style>
-.completed{
+<style scoped>
+.completed {
     text-decoration: line-through;
     color: grey;
 }
+
 .form-check-input {
     margin-right: 10px;
 }

@@ -1,5 +1,7 @@
 <script setup>
 
+import { RouterLink } from 'vue-router';
+
 
 
 </script>
@@ -17,10 +19,14 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav nav-underline">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Tareas Pendientes</a>
+                            <router-link class="nav-link" to="/">
+                                Tareas Pendientes
+                            </router-link>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Tareas Completadas</a>
+                            <router-link class="nav-link" to="/completed">
+                                Tareas Completadas
+                            </router-link>
                     </li>
                 </ul>
             </div>

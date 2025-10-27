@@ -1,4 +1,5 @@
 <script setup>
+import { computed } from 'vue';
 import TaskList from '@/components/TaskList/TaskList.vue';
 
 const props = defineProps({
@@ -7,12 +8,16 @@ const props = defineProps({
         required: true
     }
 })
+const competedTask = computed(function()
+{
+    return props.tasks.filter((t) => t.completed);
+})
 </script>
 
 <template>
     <div class="container my-5">
-        <h1 class="text-center mb-4">Gestor de Tareas</h1>
-        <TaskList class="mb-4" :tasks=tasks></TaskList>
+        <h1 class="text-center mb-4">Gestor de Tareas Completadas</h1>
+        <TaskList class="mb-4" :tasks=competedTask></TaskList>
     </div>
 </template>
 
