@@ -1,0 +1,13 @@
+h1 {
+    color: white;
+    font-size: 2.5rem;
+    background: green;
+    padding: 20px;
+    text-align: center;
+}
+
+
+#map {
+    height: 600px;
+    width: 100%;
+}

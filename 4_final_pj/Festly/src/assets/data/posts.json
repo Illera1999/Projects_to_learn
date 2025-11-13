@@ -1,0 +1,287 @@
+[
+    {
+        "id": "1",
+        "imageUrl": "assets/mock/festly01.jpg",
+        "likes": 124,
+        "saved": false,
+        "eventName": "Primavera Sound 2025",
+        "place": {
+            "name": "Parc del Fòrum",
+            "city": "Barcelona",
+            "country": "España",
+            "lat": 41.409,
+            "lng": 2.2189
+        },
+        "createdAt": "2025-05-30T22:00:00Z",
+        "author": {
+            "name": "Andrea López",
+            "avatarUrl": "assets/avatars/user1.jpg"
+        }
+    },
+    {
+        "id": "2",
+        "imageUrl": "assets/mock/festly02.jpg",
+        "likes": 89,
+        "saved": true,
+        "eventName": "Mad Cool Festival",
+        "place": {
+            "name": "Espacio Iberdrola Music",
+            "city": "Madrid",
+            "country": "España",
+            "lat": 40.4168,
+            "lng": -3.7038
+        },
+        "createdAt": "2025-07-10T21:00:00Z",
+        "author": {
+            "name": "Carlos M.",
+            "avatarUrl": "assets/avatars/user2.jpg"
+        }
+    },
+    {
+        "id": "3",
+        "imageUrl": "assets/mock/festly03.jpg",
+        "likes": 57,
+        "saved": false,
+        "eventName": "Arenal Sound",
+        "place": {
+            "name": "Playa El Arenal",
+            "city": "Burriana",
+            "country": "España",
+            "lat": 39.8721,
+            "lng": -0.0793
+        },
+        "createdAt": "2025-08-03T20:00:00Z",
+        "author": {
+            "name": "Lucía Pérez",
+            "avatarUrl": "assets/avatars/user3.jpg"
+        }
+    },
+    {
+        "id": "4",
+        "imageUrl": "assets/mock/festly04.jpg",
+        "likes": 205,
+        "saved": true,
+        "eventName": "Rototom Sunsplash",
+        "place": {
+            "name": "Benicàssim Festival Site",
+            "city": "Benicàssim",
+            "country": "España",
+            "lat": 40.052,
+            "lng": 0.055
+        },
+        "createdAt": "2025-08-22T19:30:00Z",
+        "author": {
+            "name": "Raúl Ortega",
+            "avatarUrl": "assets/avatars/user4.jpg"
+        }
+    },
+    {
+        "id": "5",
+        "imageUrl": "assets/mock/festly05.jpg",
+        "likes": 47,
+        "saved": false,
+        "eventName": "BBK Live",
+        "place": {
+            "name": "Kobetamendi",
+            "city": "Bilbao",
+            "country": "España",
+            "lat": 43.263,
+            "lng": -2.935
+        },
+        "createdAt": "2025-07-13T18:45:00Z",
+        "author": {
+            "name": "Laura Sánchez",
+            "avatarUrl": "assets/avatars/user5.jpg"
+        }
+    },
+    {
+        "id": "6",
+        "imageUrl": "assets/mock/festly06.jpg",
+        "likes": 172,
+        "saved": false,
+        "eventName": "Sonorama Ribera",
+        "place": {
+            "name": "Aranda de Duero",
+            "city": "Burgos",
+            "country": "España",
+            "lat": 41.6719,
+            "lng": -3.6907
+        },
+        "createdAt": "2025-08-15T19:00:00Z",
+        "author": {
+            "name": "Marta Ruiz",
+            "avatarUrl": "assets/avatars/user6.jpg"
+        }
+    },
+    {
+        "id": "7",
+        "imageUrl": "assets/mock/festly07.jpg",
+        "likes": 98,
+        "saved": false,
+        "eventName": "Viña Rock",
+        "place": {
+            "name": "Villarrobledo",
+            "city": "Albacete",
+            "country": "España",
+            "lat": 39.2697,
+            "lng": -2.6023
+        },
+        "createdAt": "2025-04-30T21:15:00Z",
+        "author": {
+            "name": "Pedro Jiménez",
+            "avatarUrl": "assets/avatars/user7.jpg"
+        }
+    },
+    {
+        "id": "8",
+        "imageUrl": "assets/mock/festly08.jpg",
+        "likes": 63,
+        "saved": true,
+        "eventName": "Festival Internacional de Benicàssim",
+        "place": {
+            "name": "Benicàssim Festival Site",
+            "city": "Benicàssim",
+            "country": "España",
+            "lat": 40.051,
+            "lng": 0.054
+        },
+        "createdAt": "2025-07-17T20:00:00Z",
+        "author": {
+            "name": "Sara P.",
+            "avatarUrl": "assets/avatars/user8.jpg"
+        }
+    },
+    {
+        "id": "9",
+        "imageUrl": "assets/mock/festly09.jpg",
+        "likes": 312,
+        "saved": true,
+        "eventName": "Dreambeach Villaricos",
+        "place": {
+            "name": "Playa de Villaricos",
+            "city": "Almería",
+            "country": "España",
+            "lat": 37.296,
+            "lng": -1.825
+        },
+        "createdAt": "2025-08-10T23:00:00Z",
+        "author": {
+            "name": "Javi Romero",
+            "avatarUrl": "assets/avatars/user9.jpg"
+        }
+    },
+    {
+        "id": "10",
+        "imageUrl": "assets/mock/festly10.jpg",
+        "likes": 56,
+        "saved": false,
+        "eventName": "O Son do Camiño",
+        "place": {
+            "name": "Monte do Gozo",
+            "city": "Santiago de Compostela",
+            "country": "España",
+            "lat": 42.901,
+            "lng": -8.507
+        },
+        "createdAt": "2025-06-12T20:30:00Z",
+        "author": {
+            "name": "Paula Díaz",
+            "avatarUrl": "assets/avatars/user10.jpg"
+        }
+    },
+    {
+        "id": "11",
+        "imageUrl": "assets/mock/festly11.jpg",
+        "likes": 230,
+        "saved": true,
+        "eventName": "Sónar Barcelona",
+        "place": {
+            "name": "Fira Montjuïc",
+            "city": "Barcelona",
+            "country": "España",
+            "lat": 41.372,
+            "lng": 2.15
+        },
+        "createdAt": "2025-06-20T18:00:00Z",
+        "author": {
+            "name": "Manu L.",
+            "avatarUrl": "assets/avatars/user11.jpg"
+        }
+    },
+    {
+        "id": "12",
+        "imageUrl": "assets/mock/festly12.jpg",
+        "likes": 142,
+        "saved": false,
+        "eventName": "Cabo de Plata",
+        "place": {
+            "name": "Zahara de los Atunes",
+            "city": "Cádiz",
+            "country": "España",
+            "lat": 36.133,
+            "lng": -5.833
+        },
+        "createdAt": "2025-07-25T19:00:00Z",
+        "author": {
+            "name": "Cristina Vega",
+            "avatarUrl": "assets/avatars/user12.jpg"
+        }
+    },
+    {
+        "id": "13",
+        "imageUrl": "assets/mock/festly13.jpg",
+        "likes": 301,
+        "saved": true,
+        "eventName": "Cruïlla Festival",
+        "place": {
+            "name": "Parc del Fòrum",
+            "city": "Barcelona",
+            "country": "España",
+            "lat": 41.410,
+            "lng": 2.22
+        },
+        "createdAt": "2025-07-04T21:00:00Z",
+        "author": {
+            "name": "Elena G.",
+            "avatarUrl": "assets/avatars/user13.jpg"
+        }
+    },
+    {
+        "id": "14",
+        "imageUrl": "assets/mock/festly14.jpg",
+        "likes": 75,
+        "saved": false,
+        "eventName": "Resurrection Fest",
+        "place": {
+            "name": "Viveiro",
+            "city": "Lugo",
+            "country": "España",
+            "lat": 43.662,
+            "lng": -7.593
+        },
+        "createdAt": "2025-07-05T18:00:00Z",
+        "author": {
+            "name": "David Iglesias",
+            "avatarUrl": "assets/avatars/user14.jpg"
+        }
+    },
+    {
+        "id": "15",
+        "imageUrl": "assets/mock/festly15.jpg",
+        "likes": 188,
+        "saved": true,
+        "eventName": "Festival de les Arts",
+        "place": {
+            "name": "Ciudad de las Artes y las Ciencias",
+            "city": "Valencia",
+            "country": "España",
+            "lat": 39.454,
+            "lng": -0.352
+        },
+        "createdAt": "2025-06-07T20:00:00Z",
+        "author": {
+            "name": "Marcos Vidal",
+            "avatarUrl": "assets/avatars/user15.jpg"
+        }
+    }
+]

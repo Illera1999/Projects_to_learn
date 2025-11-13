@@ -1,0 +1,11 @@
+<h1>Listado de Establecimientos</h1>
+<ul>
+    @for (establecimiento of establecimientos; track establecimiento.id; let i = $index) {
+    <li>
+        {{ i + 1 }}
+        <a [routerLink]="['/listadoEstablecimientos', establecimiento.id]">
+            {{ establecimiento.nombre }}
+        </a>
+    </li>
+    }
+</ul>

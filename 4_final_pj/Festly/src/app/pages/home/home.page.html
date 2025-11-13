@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Feed</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-list>
+    @for (post of posts(); track post.id; let index = $index) {
+    <ion-item>
+      <ion-avatar slot="start">
+        <img [src]="'https://picsum.photos/80/80?random=' + index" alt="avatar" />
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ post.event.name }}</h2>
+        <p>{{ post.event.placeLabel }}</p>
+        <p>❤️ {{ post.likes }}</p>
+      </ion-label>
+    </ion-item>
+    }
+  </ion-list>
+  <ion-infinite-scroll [disabled]="noMorePost()" (ionInfinite)="getMorePost($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

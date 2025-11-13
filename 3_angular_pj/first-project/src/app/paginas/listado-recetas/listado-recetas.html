@@ -1,0 +1,7 @@
+<h1>Listado de Recetas</h1>
+@for (receta of recetas; track receta.id) {
+  <app-detalle-receta
+    [receta]="receta"
+    (anadirFavorita)="manejarFavorita($event)">
+  </app-detalle-receta>
+}

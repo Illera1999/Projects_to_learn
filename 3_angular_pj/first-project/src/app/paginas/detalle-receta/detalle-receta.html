@@ -1,0 +1,15 @@
+<div class="row">
+    <div>
+        <h2>{{receta.nombre}}</h2>
+    </div>
+    <div>
+        <button (click)="anadirFavoritos()">Añadir a favorito</button>
+    </div>
+</div>
+<p>Tipo: {{receta.tipo}}</p>
+<p>Dificultad: {{receta.dificultad}}</p>
+@if(receta.imagen){
+    <img [src]="receta.imagen" alt="" />
+}@else {
+    <img src="" alt="">
+}
