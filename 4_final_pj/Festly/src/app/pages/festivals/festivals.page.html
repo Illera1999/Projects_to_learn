@@ -1,16 +1,56 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>festivals</ion-title>
+    <ion-title>Festivales</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">festivals</ion-title>
+      <ion-title size="large">Festivales</ion-title>
     </ion-toolbar>
   </ion-header>
 
+  <!-- CONTENEDOR DEL MAPA -->
+  <div class="map-wrapper">
+    <capacitor-google-map #map></capacitor-google-map>
+  </div>
 
-<capacitor-google-map #map></capacitor-google-map>
+  <!-- SECCIÓN DE FILTROS -->
+  <section class="filters">
+    <h2 class="filters__title">Explora festivales</h2>
+    <p class="filters__hint">
+      Usa los filtros para encontrar eventos por fecha, ubicación o estilo de música.
+    </p>
+  </section>
+
+
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button>
+      <ion-icon name="filter-outline"></ion-icon>
+    </ion-fab-button>
+    <!--
+    <ion-fab-list side="top">
+      <ion-fab-button>
+        <ion-icon name="document"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="color-palette"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="globe"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+    -->
+  </ion-fab>
+  @if (showRetryButton){
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end" class="fab-retry-location">
+    <ion-fab-button color="primary" (click)="refreshLocation()">
+      <ion-icon name="locate-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  }
+
+
 </ion-content>

@@ -1,5 +1,40 @@
+.map-wrapper {
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+}
+
 capacitor-google-map {
-    display: inline-block;
-    width: 275px;
-    height: 400px;
+    display: block;
+    width: 100%;
+    max-width: 360px;
+    height: 320px;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+.filters {
+    padding: 8px 16px 24px;
+    color: #f5f5f5;
+
+    &__title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 4px;
+    }
+
+    &__hint {
+        font-size: 0.8rem;
+        opacity: 0.7;
+        margin-bottom: 12px;
+    }
+}
+
+ion-fab {
+    margin-bottom: var(--ion-safe-area-bottom, 0);
+}
+
+.fab-retry-location {
+    right: 88px;
 }

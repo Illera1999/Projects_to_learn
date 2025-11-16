@@ -71,3 +71,11 @@ Thumbs.db
 
 # Keys and credentials
 src/app/config/keys.ts
+
+# Google Maps API keys
+android/app/src/main/res/values/google_maps_api.xml
+
+
+# Firebase configuration files
+src/environments/environment.ts
+src/environments/environment.prod.ts
