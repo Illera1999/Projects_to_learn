@@ -5,14 +5,17 @@ import { PostDTO } from '../interfaces/models/post.dto';
 import { Observable } from 'rxjs';
 import { delay, map } from 'rxjs/operators';
 import { mapPostsDTOtoEntities } from '../interfaces/mapper/post.mapper';
+import { PostDataService } from './post-data.abstract';
 
 @Injectable({
   providedIn: 'root',
 })
-export class PostService {
+export class PostService extends PostDataService {
   private jsonUrl = 'assets/data/posts.json'
   
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    super();
+  }
 
   getPosts(): Observable<PostEntity[]>{
     return this.http.get<PostDTO[]>(this.jsonUrl).pipe(

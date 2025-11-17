@@ -76,15 +76,16 @@ export class FestivalsPage implements OnInit, AfterViewInit {
       element: this.mapRef.nativeElement,
       config: {
         center,
-        zoom
-      },
-    },);
+        zoom,
+      }
+    });
 
     if (userPosition) {
       await this.map.addMarker({
         coordinate: userPosition,
         title: 'Tu ubicación',
         snippet: 'Estás aquí',
+        iconUrl: 'https://maps.gstatic.com/mapfiles/ms2/micons/red-dot.png',
       });
     }
   }

@@ -9,6 +9,8 @@ import { environment } from './environments/environment';
 import { provideHttpClient } from '@angular/common/http';
 import { FirebaseApp, initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { PostDataService } from './app/services/post-data.abstract';
+import { PostFirestoreService } from './app/services/post-firestore-service';
 
 
 bootstrapApplication(AppComponent, {
@@ -19,5 +21,6 @@ bootstrapApplication(AppComponent, {
     provideHttpClient(), 
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
+    { provide: PostDataService, useClass: PostFirestoreService }
   ],
 });
