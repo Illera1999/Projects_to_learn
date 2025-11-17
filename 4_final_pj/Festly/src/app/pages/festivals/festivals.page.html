@@ -13,7 +13,13 @@
 
   <!-- CONTENEDOR DEL MAPA -->
   <div class="map-wrapper">
-    <capacitor-google-map #map></capacitor-google-map>
+    <capacitor-google-map #map [hidden]="isMapLoading()"></capacitor-google-map>
+    @if (isMapLoading()) {
+      <div class="map-loading-overlay">
+        <ion-spinner name="crescent"></ion-spinner>
+        <p>Cargando mapa...</p>
+      </div>
+    } 
   </div>
 
   <!-- SECCIÓN DE FILTROS -->

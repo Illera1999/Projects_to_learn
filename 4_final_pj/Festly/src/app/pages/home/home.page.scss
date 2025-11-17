@@ -1,0 +1,60 @@
+ion-content {
+    --padding-top: 8px;
+    --padding-start: 12px;
+    --padding-end: 12px;
+}
+
+.post-card {
+    --background: var(--ion-color-light);
+    --inner-padding-top: 12px;
+    --inner-padding-bottom: 12px;
+    --inner-padding-start: 12px;
+    --inner-padding-end: 12px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.post-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 4px;
+    color: var(--ion-color-dark);
+}
+
+.post-event {
+    margin: 0 0 6px;
+    font-size: 0.95rem;
+    color: var(--ion-color-medium);
+}
+
+.post-meta {
+    display: flex;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: var(--ion-color-medium);
+    margin-bottom: 6px;
+}
+
+.post-author::before {
+    content: "👤 ";
+}
+
+.post-date::before {
+    content: "📅 ";
+}
+
+.post-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 4px;
+}
+
+.post-likes {
+    font-size: 0.9rem;
+}
+
+ion-list {
+    background: transparent !important;
+}

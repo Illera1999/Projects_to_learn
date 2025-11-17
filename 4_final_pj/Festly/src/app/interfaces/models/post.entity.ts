@@ -1,14 +1,10 @@
+import { Timestamp } from "@angular/fire/firestore";
+
 export interface PostEntity {
-    id: string;
-    image: string;
+    id: number;
+    title: string;
     likes: number;
-    isSaved: boolean;
-    event: {
-        name: string;
-        placeLabel: string; 
-        coords?: { lat: number; lng: number };
-    };
-    createdAt: Date | null;
-    authorName: string;
-    authorAvatar?: string;
+    eventName: string;
+    createdAt: Timestamp;
+    author: string;
 }

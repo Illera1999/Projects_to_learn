@@ -9,6 +9,7 @@ import {
   IonIcon,
   IonFab,
   IonFabButton,
+  IonSpinner,
 } from '@ionic/angular/standalone';
 import { GoogleMap } from '@capacitor/google-maps';
 import { Geolocation } from '@capacitor/geolocation';
@@ -33,7 +34,8 @@ import { Capacitor } from '@capacitor/core';
     FormsModule,
     IonIcon,
     IonFab,
-    IonFabButton
+    IonFabButton,
+    IonSpinner,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
@@ -42,6 +44,7 @@ export class FestivalsPage implements OnInit, AfterViewInit {
   private apiKey = ENV_KEYS.googleMapsApiKey;
   @ViewChild('map', { static: false }) mapRef!: ElementRef<HTMLElement>;
   locationDenied = signal<boolean>(false);
+  isMapLoading = signal<boolean>(true);
 
   readonly isNative = Capacitor.isNativePlatform();
 
@@ -60,6 +63,7 @@ export class FestivalsPage implements OnInit, AfterViewInit {
   }
 
   async initMap() {
+    this.isMapLoading.set(true);
     const defaultCenter = { lat: 35.5, lng: -9.2 };
     let center = defaultCenter;
     let zoom = 4;
@@ -88,6 +92,7 @@ export class FestivalsPage implements OnInit, AfterViewInit {
         iconUrl: 'https://maps.gstatic.com/mapfiles/ms2/micons/red-dot.png',
       });
     }
+    this.isMapLoading.set(false);
   }
 
 

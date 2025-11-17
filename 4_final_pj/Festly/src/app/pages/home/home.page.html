@@ -10,14 +10,30 @@
   </ion-refresher>
   <ion-list>
     @for (post of posts(); track post.id; let index = $index) {
-    <ion-item>
-      <ion-avatar slot="start">
-        <img [src]="'https://picsum.photos/80/80?random=' + index" alt="avatar" />
-      </ion-avatar>
+    <ion-item class="post-card">
       <ion-label>
-        <h2>{{ post.event.name }}</h2>
-        <p>{{ post.event.placeLabel }}</p>
-        <p>❤️ {{ post.likes }}</p>
+        <h2 class="post-title">
+          {{ post.title }}
+        </h2>
+
+        <p class="post-event">
+          {{ post.eventName }}
+        </p>
+
+        <div class="post-meta">
+          <span class="post-author">
+            {{ post.author }}
+          </span>
+          <span class="post-date">
+            {{ post.createdAt.toDate() | date: 'mediumDate' }}
+          </span>
+        </div>
+
+        <div class="post-footer">
+          <span class="post-likes">
+            ❤️ {{ post.likes }}
+          </span>
+        </div>
       </ion-label>
     </ion-item>
     }

@@ -1,29 +1,29 @@
+import { Timestamp } from '@angular/fire/firestore';
 import { PostDTO } from '../models/post.dto';
 import { PostEntity } from '../models/post.entity';
 
-export function mapPostDTOtoEntity(dto: PostDTO): PostEntity {
-    const placeLabel = [
-        dto.place?.name,
-        dto.place?.city,
-        dto.place?.country && dto.place.country.toUpperCase().slice(0, 2)
-    ].filter(Boolean).join(', ');
 
+export function mapPostDTOtoEntity(dto: PostDTO): PostEntity {
     return {
         id: dto.id,
-        image: dto.imageUrl,
-        likes: dto.likes ?? 0,
-        isSaved: !!dto.saved,
-        event: {
-            name: dto.eventName,
-            placeLabel,
-            coords: dto.place?.lat && dto.place?.lng
-                ? { lat: dto.place.lat, lng: dto.place.lng }
-                : undefined
-        },
-        createdAt: dto.createdAt ? new Date(dto.createdAt) : null,
-        authorName: dto.author?.name ?? 'Anónimo',
-        authorAvatar: dto.author?.avatarUrl
+        likes: dto.likes,
+        title: dto.title,
+        eventName: dto.eventName,
+        createdAt: dto.createdAt,
+        author: dto.author
+    };
+}
+
+export function mapPostEntityToDTO(entity: PostEntity): PostDTO {
+    return {
+        id: entity.id,
+        likes: entity.likes,
+        title: entity.title,
+        eventName: entity.eventName,
+        createdAt: entity.createdAt,
+        author: entity.author
     };
 }
 
 export const mapPostsDTOtoEntities = (dtos: PostDTO[]) => dtos.map(mapPostDTOtoEntity);
+export const mapPostsEntitiesToDTOs = (entities: PostEntity[]) => entities.map(mapPostEntityToDTO);

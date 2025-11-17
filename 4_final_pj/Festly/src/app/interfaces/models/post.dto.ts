@@ -1,16 +1,10 @@
+import { Timestamp } from "@angular/fire/firestore";
+
 export interface PostDTO {
-    id: string;
-    imageUrl: string;
+    id: number;
+    title: string;
     likes: number;
-    saved: boolean;
     eventName: string;
-    place: {
-        name: string;
-        city?: string;
-        country?: string;
-        lat?: number;
-        lng?: number;
-    };
-    createdAt?: string;
-    author?: { id?: string; name?: string; avatarUrl?: string };
+    createdAt: Timestamp;
+    author: string;
 }
