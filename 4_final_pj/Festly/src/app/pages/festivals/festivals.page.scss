@@ -1,4 +1,5 @@
 .map-wrapper {
+    position: relative;
     padding: 16px;
     display: flex;
     justify-content: center;
@@ -12,14 +13,33 @@ capacitor-google-map {
     border-radius: 18px;
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    background: #000; // fallback para que el mapa tenga tamaño mientras carga
+}
+
+.map-loading-overlay {
+    position: absolute;
+    inset: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 10;
+    border-radius: 18px;
+}
+
+.map-loading-overlay p {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: #fff;
 }
 
 .filters {
-    padding: 8px 16px 24px;
-    color: #f5f5f5;
+    padding: 12px 16px 16px;
+    color: #f9fafb;
 
     &__title {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
         font-weight: 600;
         margin-bottom: 4px;
     }
@@ -27,8 +47,53 @@ capacitor-google-map {
     &__hint {
         font-size: 0.8rem;
         opacity: 0.7;
-        margin-bottom: 12px;
+        margin-bottom: 10px;
+        color: #9ca3af;
     }
+}
+
+/* Tarjeta del evento seleccionado */
+
+.selected-event {
+    padding: 0 16px 16px;
+}
+
+.selected-event__list {
+    background: transparent;
+}
+
+.selected-event__card {
+    --background: #18181b;
+    --inner-padding-top: 14px;
+    --inner-padding-bottom: 14px;
+    --inner-padding-start: 14px;
+    --inner-padding-end: 14px;
+    border-radius: 16px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    color: #f5f5f5;
+}
+
+.selected-event__title {
+    margin: 0 0 4px;
+    font-size: 1.02rem;
+    font-weight: 600;
+    color: #f9fafb;
+}
+
+.selected-event__place {
+    margin: 0 0 4px;
+    font-size: 0.9rem;
+    color: #e5e7eb;
+}
+
+.selected-event__date {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #9ca3af;
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
 
 ion-fab {
@@ -41,4 +106,14 @@ ion-fab {
 
 [hidden] {
     display: none !important;
+}
+
+.selected-event__button {
+    margin-left: 8px;
+    --color: #60a5fa;
+    --color-activated: #3b82f6;
+    --padding-start: 8px;
+    --padding-end: 8px;
+    --border-radius: 999px;
+    font-size: 0.8rem;
 }

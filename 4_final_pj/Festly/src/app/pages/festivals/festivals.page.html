@@ -15,11 +15,11 @@
   <div class="map-wrapper">
     <capacitor-google-map #map [hidden]="isMapLoading()"></capacitor-google-map>
     @if (isMapLoading()) {
-      <div class="map-loading-overlay">
-        <ion-spinner name="crescent"></ion-spinner>
-        <p>Cargando mapa...</p>
-      </div>
-    } 
+    <div class="map-loading-overlay">
+      <ion-spinner name="crescent"></ion-spinner>
+      <p>Cargando mapa...</p>
+    </div>
+    }
   </div>
 
   <!-- SECCIÓN DE FILTROS -->
@@ -30,7 +30,31 @@
     </p>
   </section>
 
+  @if (selectedEvent()) {
+  <section class="selected-event">
+    <ion-item class="selected-event__card">
+      <ion-label>
+        <h2 class="selected-event__title">
+          {{ selectedEvent()?.eventName }}
+        </h2>
+        <p class="selected-event__place">
+          {{ selectedEvent()?.place?.name }} ·
+          {{ selectedEvent()?.place?.city }},
+          {{ selectedEvent()?.place?.country }}
+        </p>
+        <p class="selected-event__date">
+          📅 {{ selectedEvent()?.date?.toDate() | date: 'longDate' }}
+        </p>
+      </ion-label>
 
+      <ion-button fill="clear" size="small" class="selected-event__button"
+        (click)="openDirectionsToEvent(selectedEvent())">
+        <ion-icon name="navigate-outline" slot="start"></ion-icon>
+        Cómo llegar
+      </ion-button>
+    </ion-item>
+  </section>
+  }
 
   <ion-fab slot="fixed" vertical="bottom" horizontal="end">
     <ion-fab-button>

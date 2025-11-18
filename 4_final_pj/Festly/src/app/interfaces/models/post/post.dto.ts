@@ -1,7 +1,7 @@
 import { Timestamp } from "@angular/fire/firestore";
 
-export interface PostEntity {
-    id: number;
+export interface PostDTO {
+    id: string;
     title: string;
     likes: number;
     eventName: string;

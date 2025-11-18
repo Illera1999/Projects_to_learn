@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable, from } from 'rxjs';
 
-import { PostDataService } from './post-data.abstract';
-import { PostEntity } from '../interfaces/models/post.entity';
-import { PostDTO } from '../interfaces/models/post.dto';
+import { PostDataService as DataService } from './data.abstract';
+import { PostEntity } from '../interfaces/models/post/post.entity';
+import { PostDTO } from '../interfaces/models/post/post.dto';
 import { mapPostEntityToDTO, mapPostsDTOtoEntities, mapPostsEntitiesToDTOs } from '../interfaces/mapper/post.mapper';
 
 import {
@@ -13,12 +13,15 @@ import {
   addDoc,
 } from '@angular/fire/firestore';
 import { map, take } from 'rxjs/operators';
+import { EventEntity } from '../interfaces/models/event/event.entity';
+import { mapEventsDTOtoEntities } from '../interfaces/mapper/event.mapper';
+import { EventDto } from '../interfaces/models/event/event.dto';
 
 @Injectable({
   providedIn: 'root',
 })
 
-export class PostFirestoreService extends PostDataService {
+export class FirestoreService extends DataService {
 
   constructor(private firestore: Firestore) {
     super();
@@ -40,11 +43,21 @@ export class PostFirestoreService extends PostDataService {
     );
   }
 
+  /*
   addPost(PostEntity: PostEntity): Observable<string> {
     const postsRef = collection(this.firestore, 'posts');
     return from(addDoc(postsRef, mapPostEntityToDTO(PostEntity))).pipe(
       map((docRef) => docRef.id)
     );
   }
+    */
 
+  override getEvent(): Observable<EventEntity[]> {
+    const eventsRef = collection(this.firestore, 'events');
+    return collectionData(eventsRef, { idField: 'id' }).pipe(
+      map((eventsDTO) =>
+        mapEventsDTOtoEntities(eventsDTO as EventDto[])
+      )
+    );
+  }
 }

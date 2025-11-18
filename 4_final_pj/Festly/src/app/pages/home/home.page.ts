@@ -8,7 +8,6 @@ import {
   IonToolbar,
   IonList,
   IonItem,
-  IonAvatar,
   IonLabel,
   IonInfiniteScroll,
   IonInfiniteScrollContent,
@@ -16,8 +15,8 @@ import {
   IonRefresher,
   IonRefresherContent
 } from '@ionic/angular/standalone';
-import { PostEntity } from 'src/app/interfaces/models/post.entity';
-import { PostDataService } from 'src/app/services/post-data.abstract';
+import { PostEntity } from 'src/app/interfaces/models/post/post.entity';
+import { PostDataService } from 'src/app/services/data.abstract';
 
 @Component({
   selector: 'app-home',
@@ -33,7 +32,6 @@ import { PostDataService } from 'src/app/services/post-data.abstract';
     FormsModule,
     IonList,
     IonItem,
-    IonAvatar,
     IonLabel,
     IonInfiniteScroll,
     IonInfiniteScrollContent,

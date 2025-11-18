@@ -1,6 +1,5 @@
-import { Timestamp } from '@angular/fire/firestore';
-import { PostDTO } from '../models/post.dto';
-import { PostEntity } from '../models/post.entity';
+import { PostDTO } from '../models/post/post.dto';
+import { PostEntity } from '../models/post/post.entity';
 
 
 export function mapPostDTOtoEntity(dto: PostDTO): PostEntity {
