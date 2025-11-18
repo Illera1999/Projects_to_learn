@@ -12,17 +12,19 @@
   </ion-header>
 
   <!-- CONTENEDOR DEL MAPA -->
-  <div class="map-wrapper">
-    <capacitor-google-map #map [hidden]="isMapLoading()"></capacitor-google-map>
-    @if (isMapLoading()) {
+<div class="map-wrapper">
+  <div #map class="gm-map" [hidden]="isMapLoading()"></div>
+  @if (isMapLoading()) {
     <div class="map-loading-overlay">
       <ion-spinner name="crescent"></ion-spinner>
       <p>Cargando mapa...</p>
     </div>
-    }
-  </div>
+  }
+</div>
 
   <!-- SECCIÓN DE FILTROS -->
+
+    <!--
   <section class="filters">
     <h2 class="filters__title">Explora festivales</h2>
     <p class="filters__hint">
@@ -60,7 +62,6 @@
     <ion-fab-button>
       <ion-icon name="filter-outline"></ion-icon>
     </ion-fab-button>
-    <!--
     <ion-fab-list side="top">
       <ion-fab-button>
         <ion-icon name="document"></ion-icon>
@@ -72,7 +73,6 @@
         <ion-icon name="globe"></ion-icon>
       </ion-fab-button>
     </ion-fab-list>
-    -->
   </ion-fab>
   @if (showRetryButton){
   <ion-fab slot="fixed" vertical="bottom" horizontal="end" class="fab-retry-location">
@@ -82,5 +82,6 @@
   </ion-fab>
   }
 
+    -->
 
 </ion-content>
