@@ -11,77 +11,83 @@
     </ion-toolbar>
   </ion-header>
 
-  <!-- CONTENEDOR DEL MAPA -->
-<div class="map-wrapper">
-  <div #map class="gm-map" [hidden]="isMapLoading()"></div>
-  @if (isMapLoading()) {
+    <ion-refresher
+      slot="fixed"
+      [disabled]="refresherDisabled()"
+      (ionRefresh)="handleRefresh($event)"
+    >
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+  <div class="map-wrapper">
+    <div
+      #map
+      class="gm-map"
+      [hidden]="isMapLoading()"
+      (touchstart)="onMapTouchStart()"
+      (touchend)="onMapTouchEnd()"
+      (touchcancel)="onMapTouchEnd()"
+      (mousedown)="onMapTouchStart()"
+      (mouseup)="onMapTouchEnd()"
+      (mouseleave)="onMapTouchEnd()"
+    ></div>
+    @if (isMapLoading()) {
     <div class="map-loading-overlay">
       <ion-spinner name="crescent"></ion-spinner>
       <p>Cargando mapa...</p>
     </div>
-  }
-</div>
+    }
+  </div>
 
-  <!-- SECCIÓN DE FILTROS -->
-
-    <!--
-  <section class="filters">
-    <h2 class="filters__title">Explora festivales</h2>
-    <p class="filters__hint">
-      Usa los filtros para encontrar eventos por fecha, ubicación o estilo de música.
-    </p>
-  </section>
-
-  @if (selectedEvent()) {
-  <section class="selected-event">
-    <ion-item class="selected-event__card">
-      <ion-label>
-        <h2 class="selected-event__title">
-          {{ selectedEvent()?.eventName }}
-        </h2>
-        <p class="selected-event__place">
-          {{ selectedEvent()?.place?.name }} ·
-          {{ selectedEvent()?.place?.city }},
-          {{ selectedEvent()?.place?.country }}
-        </p>
-        <p class="selected-event__date">
-          📅 {{ selectedEvent()?.date?.toDate() | date: 'longDate' }}
-        </p>
-      </ion-label>
-
-      <ion-button fill="clear" size="small" class="selected-event__button"
-        (click)="openDirectionsToEvent(selectedEvent())">
-        <ion-icon name="navigate-outline" slot="start"></ion-icon>
-        Cómo llegar
-      </ion-button>
-    </ion-item>
-  </section>
-  }
-
-  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-    <ion-fab-button>
-      <ion-icon name="filter-outline"></ion-icon>
-    </ion-fab-button>
-    <ion-fab-list side="top">
-      <ion-fab-button>
-        <ion-icon name="document"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-button>
-        <ion-icon name="color-palette"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-button>
-        <ion-icon name="globe"></ion-icon>
-      </ion-fab-button>
-    </ion-fab-list>
-  </ion-fab>
-  @if (showRetryButton){
-  <ion-fab slot="fixed" vertical="bottom" horizontal="end" class="fab-retry-location">
-    <ion-fab-button color="primary" (click)="refreshLocation()">
-      <ion-icon name="locate-outline"></ion-icon>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="openGenreFilter()">
+      🎵
     </ion-fab-button>
   </ion-fab>
-  }
 
-    -->
+@if (selectedEvent()) {
+<section class="selected-event">
+  <ion-item class="selected-event__card">
+    <ion-label>
+      <h2 class="selected-event__title">
+        {{ selectedEvent()?.eventName }}
+      </h2>
+      <p class="selected-event__place">
+        {{ selectedEvent()?.place?.name }} ·
+        {{ selectedEvent()?.place?.city }},
+        {{ selectedEvent()?.place?.country }}
+      </p>
+      <p class="selected-event__date">
+        📅 {{ selectedEvent()?.date?.toDate() | date: 'longDate' }}
+      </p>
+    </ion-label>
 
+    <ion-button
+      fill="clear"
+      size="small"
+      class="selected-event__button"
+      (click)="openDirectionsToEvent(selectedEvent())"
+    >
+      <ion-icon slot="start" name="navigate-outline"></ion-icon>
+      Cómo llegar
+    </ion-button>
+  </ion-item>
+</section>
+}
+
+<ion-alert
+  [isOpen]="showGenreFilter()"
+  header="Filtrar por género"
+  [inputs]="genreAlertInputs"
+  [buttons]="genreAlertButtons"
+  (didDismiss)="closeGenreFilter()"
+></ion-alert>
+
+<ion-toast
+  [isOpen]="showNoLocationToast()"
+  message="No hemos podido obtener tu ubicación actual. Revisa los permisos de localización y vuelve a intentarlo."
+  duration="2500"
+  position="bottom"
+  (didDismiss)="onNoLocationToastDismiss()"
+></ion-toast>
 </ion-content>

@@ -1,4 +1,5 @@
 import { Timestamp } from "@angular/fire/firestore";
+import { MusicGenre } from "./event-genre";
 
 export interface EventEntity {
     id: string;
@@ -11,4 +12,5 @@ export interface EventEntity {
         lng: number,
         name: string
     }
+    genre: MusicGenre;
 }

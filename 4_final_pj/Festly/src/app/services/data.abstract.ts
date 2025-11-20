@@ -6,4 +6,5 @@ export abstract class PostDataService {
     abstract getPosts(): Observable<PostEntity[]>;
     abstract getPage(page: number, pageSize: number): Observable<PostEntity[]>;
     abstract getEvent(): Observable<EventEntity[]>;
+    abstract sendEvent(post: PostEntity): Observable<void>;
 }

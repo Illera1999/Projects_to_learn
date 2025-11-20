@@ -13,8 +13,84 @@
     display: flex;
     justify-content: center;
     padding: 16px;
+    position: relative;
 }
 
 [hidden] {
     display: none !important;
+}
+
+.map-loading-overlay {
+    position: absolute;
+    inset: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(2px);
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.selected-event {
+    padding: 0 16px 24px;
+}
+
+.selected-event__card {
+    max-width: 360px;
+    margin: 0 auto;
+    border-radius: 16px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.08);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    --inner-padding-start: 16px;
+    --inner-padding-end: 16px;
+    --inner-padding-top: 12px;
+    --inner-padding-bottom: 12px;
+}
+.selected-event__title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.selected-event__place,
+.selected-event__date {
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.selected-event__place {
+    margin-bottom: 4px;
+}
+
+.selected-event__button {
+    margin-left: auto;
+    font-size: 0.85rem;
+}
+
+.no-location-modal {
+    padding: 16px;
+    max-width: 360px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+}
+
+.no-location-modal h2 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.no-location-modal p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
 }

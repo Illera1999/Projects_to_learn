@@ -43,21 +43,21 @@ export class FirestoreService extends DataService {
     );
   }
 
-  /*
-  addPost(PostEntity: PostEntity): Observable<string> {
-    const postsRef = collection(this.firestore, 'posts');
-    return from(addDoc(postsRef, mapPostEntityToDTO(PostEntity))).pipe(
-      map((docRef) => docRef.id)
-    );
-  }
-    */
-
   override getEvent(): Observable<EventEntity[]> {
     const eventsRef = collection(this.firestore, 'events');
     return collectionData(eventsRef, { idField: 'id' }).pipe(
       map((eventsDTO) =>
         mapEventsDTOtoEntities(eventsDTO as EventDto[])
       )
+    );
+  }
+
+  override sendEvent(post: PostEntity): Observable<void> {
+    const postsRef = collection(this.firestore, 'posts');
+    const dto: PostDTO = mapPostEntityToDTO(post);
+  
+    return from(addDoc(postsRef, dto)).pipe(
+      map(() => void 0)
     );
   }
 }
