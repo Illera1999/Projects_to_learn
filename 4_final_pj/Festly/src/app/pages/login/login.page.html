@@ -1,0 +1,63 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Iniciar sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Iniciar sesión</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <form
+    #loginForm="ngForm"
+    (ngSubmit)="onSubmit(loginForm)"
+    class="login-form"
+  >
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input
+          type="email"
+          name="email"
+          required
+          [(ngModel)]="formModel.email"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Contraseña</ion-label>
+        <ion-input
+          type="password"
+          name="password"
+          required
+          minlength="6"
+          [(ngModel)]="formModel.password"
+        ></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <div class="login-actions">
+      <ion-button
+        expand="block"
+        type="submit"
+        [disabled]="loginForm.invalid || loading"
+      >
+        <ion-spinner *ngIf="loading" name="crescent" slot="start"></ion-spinner>
+        Entrar
+      </ion-button>
+    </div>
+
+    <div class="login-skip">
+      <ion-button fill="clear" size="small" (click)="skipLogin()">
+        Saltar
+      </ion-button>
+    </div>
+
+    <p *ngIf="errorMessage" class="login-error">
+      {{ errorMessage }}
+    </p>
+  </form>
+</ion-content>

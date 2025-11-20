@@ -1,0 +1,1 @@
+export type MusicGenre = 'pop' | 'rock' | 'indie' | 'electronic' | 'other';

@@ -52,9 +52,19 @@ export class HomePage implements OnInit {
   @ViewChild(IonContent, { static: true }) content!: IonContent;
 
   ngOnInit() {
+    this.loadPost()
+  }
+
+  private loadPost() {
     this.postService.getPosts().subscribe({
       next: (data) => {
-        this.allPosts.set(data);
+        const sorted = [...data].sort((a, b) => {
+          const aTime = a.createdAt?.toDate ? a.createdAt.toDate().getTime() : 0;
+          const bTime = b.createdAt?.toDate ? b.createdAt.toDate().getTime() : 0;
+          return bTime - aTime; // más recientes primero
+        });
+
+        this.allPosts.set(sorted);
 
         this.page = 1;
         this.noMorePost.set(false);

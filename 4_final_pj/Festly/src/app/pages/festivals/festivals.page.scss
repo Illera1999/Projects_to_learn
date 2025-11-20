@@ -1,11 +1,4 @@
-.map-wrapper {
-    position: relative;
-    padding: 16px;
-    display: flex;
-    justify-content: center;
-}
-
-capacitor-google-map {
+.gm-map {
     display: block;
     width: 100%;
     max-width: 360px;
@@ -13,7 +6,18 @@ capacitor-google-map {
     border-radius: 18px;
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
-    background: #000; // fallback para que el mapa tenga tamaño mientras carga
+    margin: 0 auto;
+}
+
+.map-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 16px;
+    position: relative;
+}
+
+[hidden] {
+    display: none !important;
 }
 
 .map-loading-overlay {
@@ -23,97 +27,70 @@ capacitor-google-map {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.35);
-    z-index: 10;
     border-radius: 18px;
-}
-
-.map-loading-overlay p {
-    margin-top: 8px;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(2px);
+    text-align: center;
     font-size: 0.9rem;
-    color: #fff;
 }
-
-.filters {
-    padding: 12px 16px 16px;
-    color: #f9fafb;
-
-    &__title {
-        font-size: 1.05rem;
-        font-weight: 600;
-        margin-bottom: 4px;
-    }
-
-    &__hint {
-        font-size: 0.8rem;
-        opacity: 0.7;
-        margin-bottom: 10px;
-        color: #9ca3af;
-    }
-}
-
-/* Tarjeta del evento seleccionado */
 
 .selected-event {
-    padding: 0 16px 16px;
-}
-
-.selected-event__list {
-    background: transparent;
+    padding: 0 16px 24px;
 }
 
 .selected-event__card {
-    --background: #18181b;
-    --inner-padding-top: 14px;
-    --inner-padding-bottom: 14px;
-    --inner-padding-start: 14px;
-    --inner-padding-end: 14px;
+    max-width: 360px;
+    margin: 0 auto;
     border-radius: 16px;
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.04);
-    color: #f5f5f5;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.08);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    --inner-padding-start: 16px;
+    --inner-padding-end: 16px;
+    --inner-padding-top: 12px;
+    --inner-padding-bottom: 12px;
 }
-
 .selected-event__title {
-    margin: 0 0 4px;
-    font-size: 1.02rem;
+    font-size: 1rem;
     font-weight: 600;
-    color: #f9fafb;
+    margin-bottom: 4px;
 }
 
-.selected-event__place {
-    margin: 0 0 4px;
-    font-size: 0.9rem;
-    color: #e5e7eb;
-}
-
+.selected-event__place,
 .selected-event__date {
     margin: 0;
     font-size: 0.85rem;
-    color: #9ca3af;
-    display: flex;
-    align-items: center;
-    gap: 4px;
+    line-height: 1.4;
 }
 
-ion-fab {
-    margin-bottom: var(--ion-safe-area-bottom, 0);
-}
-
-.fab-retry-location {
-    right: 88px;
-}
-
-[hidden] {
-    display: none !important;
+.selected-event__place {
+    margin-bottom: 4px;
 }
 
 .selected-event__button {
-    margin-left: 8px;
-    --color: #60a5fa;
-    --color-activated: #3b82f6;
-    --padding-start: 8px;
-    --padding-end: 8px;
-    --border-radius: 999px;
-    font-size: 0.8rem;
+    margin-left: auto;
+    font-size: 0.85rem;
+}
+
+.no-location-modal {
+    padding: 16px;
+    max-width: 360px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+}
+
+.no-location-modal h2 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.no-location-modal p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
 }

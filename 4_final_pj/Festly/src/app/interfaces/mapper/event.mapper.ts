@@ -10,7 +10,8 @@ export function mapEventDTOtoEntity(dto: EventDto): EventEntity {
         id: dto.id,
         date: dto.date,
         eventName: dto.eventName,
-        place: dto.place
+        place: dto.place,
+        genre: dto.genre
     };
 }
 
@@ -19,7 +20,8 @@ export function mapEventEntityToDTO(entity: EventEntity): EventDto {
         id: entity.id,
         date: entity.date,
         eventName: entity.eventName,
-        place: entity.place
+        place: entity.place,
+        genre: entity.genre
     };
 }
 
