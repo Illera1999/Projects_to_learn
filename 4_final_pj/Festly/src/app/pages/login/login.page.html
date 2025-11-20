@@ -11,40 +11,28 @@
     </ion-toolbar>
   </ion-header>
 
-  <form
-    #loginForm="ngForm"
-    (ngSubmit)="onSubmit(loginForm)"
-    class="login-form"
-  >
+  <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" class="login-form">
     <ion-list>
       <ion-item>
         <ion-label position="stacked">Email</ion-label>
-        <ion-input
-          type="email"
-          name="email"
-          required
-          [(ngModel)]="formModel.email"
-        ></ion-input>
+        <ion-input type="email" name="email" required [(ngModel)]="formModel.email"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label position="stacked">Contraseña</ion-label>
-        <ion-input
-          type="password"
-          name="password"
-          required
-          minlength="6"
-          [(ngModel)]="formModel.password"
-        ></ion-input>
+
+        <ion-input [type]="showPassword ? 'text' : 'password'" name="password" required minlength="6"
+          [(ngModel)]="formModel.password"></ion-input>
+
+        <ion-button fill="clear" slot="end" size="small" type="button" (click)="togglePasswordVisibility()">
+          <ion-icon [name]="showPassword ? 'eye-off-outline' : 'eye-outline'" slot="start"></ion-icon>
+          {{ showPassword ? 'Ocultar' : 'Mostrar' }}
+        </ion-button>
       </ion-item>
     </ion-list>
 
     <div class="login-actions">
-      <ion-button
-        expand="block"
-        type="submit"
-        [disabled]="loginForm.invalid || loading"
-      >
+      <ion-button expand="block" type="submit" [disabled]="loginForm.invalid || loading">
         <ion-spinner *ngIf="loading" name="crescent" slot="start"></ion-spinner>
         Entrar
       </ion-button>
@@ -56,8 +44,10 @@
       </ion-button>
     </div>
 
-    <p *ngIf="errorMessage" class="login-error">
+    @if(errorMessage){
+    <p class="login-error">
       {{ errorMessage }}
     </p>
+    }
   </form>
 </ion-content>

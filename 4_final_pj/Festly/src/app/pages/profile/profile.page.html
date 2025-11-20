@@ -1,13 +1,52 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>profile</ion-title>
+    <ion-title>Perfil</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">profile</ion-title>
+      <ion-title size="large">Perfil</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ng-container *ngIf="user$ | async as user; else noUser">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>
+          {{ user.email || 'Usuario sin email' }}
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item lines="none">
+          <ion-label>
+            <h3>ID de usuario</h3>
+            <p>{{ user.uid }}</p>
+          </ion-label>
+        </ion-item>
+        <div class="profile-actions">
+          <ion-button expand="block" color="medium" (click)="onLogout()">
+            Cerrar sesión
+          </ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+
+  <ng-template #noUser>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Sin sesión iniciada</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>No hay ningún usuario autenticado en este momento.</p>
+        <div class="profile-actions">
+          <ion-button expand="block" color="primary" (click)="goToLogin()">
+            Ir al inicio de sesión
+          </ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </ng-template>
 </ion-content>

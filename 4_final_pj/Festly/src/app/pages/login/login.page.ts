@@ -9,9 +9,10 @@ import {
   IonButton, 
   IonLabel, 
   IonList, 
-  IonItem ,
+  IonItem,
   IonSpinner,
-  IonInput
+  IonInput,
+  IonIcon
 } from '@ionic/angular/standalone';
 import { AuthService } from 'src/app/services/auth-service';
 import { Router } from '@angular/router';
@@ -22,19 +23,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.page.scss'],
   standalone: true,
   imports: [
-    IonContent, 
-    IonHeader, 
-    IonTitle, 
-    IonToolbar, 
-    CommonModule, 
-    FormsModule, 
-    IonButton, 
-    IonLabel, 
-    IonList, 
+    IonContent,
+    IonHeader,
+    IonTitle,
+    IonToolbar,
+    CommonModule,
+    FormsModule,
+    IonButton,
+    IonLabel,
+    IonList,
     IonItem,
     IonSpinner,
-    FormsModule,  
-    IonInput
+    IonInput,
+    IonIcon
   ]
 })
 export class LoginPage implements OnInit {
@@ -45,6 +46,7 @@ export class LoginPage implements OnInit {
 
   loading = false;
   errorMessage = '';
+  showPassword = false;
 
   constructor(
     private authService: AuthService,
@@ -52,6 +54,10 @@ export class LoginPage implements OnInit {
   ) { }
 
   ngOnInit() {
+  }
+
+  togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
   }
 
   onSubmit(form: NgForm): void {
