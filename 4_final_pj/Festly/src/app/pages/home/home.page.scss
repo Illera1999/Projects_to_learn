@@ -1,60 +1,95 @@
-ion-content {
-    --padding-top: 8px;
-    --padding-start: 12px;
-    --padding-end: 12px;
+.post-card {
+    margin: 8px 12px;
+    border-radius: 16px;
+    --background: #111827;
+    --inner-padding-end: 12px;
+    --inner-padding-start: 12px;
+    --padding-start: 0;
+    --min-height: 0;
 }
 
-.post-card {
-    --background: var(--ion-color-light);
-    --inner-padding-top: 12px;
-    --inner-padding-bottom: 12px;
-    --inner-padding-start: 12px;
-    --inner-padding-end: 12px;
+.post-card__content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.post-image-wrapper {
+    overflow: hidden;
     border-radius: 12px;
-    margin-bottom: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    margin-bottom: 4px;
+}
+
+.post-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
 .post-title {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
-    margin: 0 0 4px;
-    color: var(--ion-color-dark);
+    margin: 0;
 }
 
 .post-event {
-    margin: 0 0 6px;
-    font-size: 0.95rem;
-    color: var(--ion-color-medium);
+    margin: 0;
+    opacity: 0.8;
+    font-size: 0.9rem;
 }
 
 .post-meta {
     display: flex;
-    gap: 8px;
+    justify-content: space-between;
+    align-items: center;
     font-size: 0.8rem;
-    color: var(--ion-color-medium);
-    margin-bottom: 6px;
+    opacity: 0.8;
 }
 
-.post-author::before {
-    content: "👤 ";
-}
-
-.post-date::before {
-    content: "📅 ";
+.post-author {
+    font-weight: 500;
 }
 
 .post-footer {
     display: flex;
     justify-content: flex-end;
-    align-items: center;
     margin-top: 4px;
+    font-size: 0.85rem;
 }
 
 .post-likes {
-    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: transparent;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 999px;
+    cursor: pointer;
+    color: inherit;
 }
 
-ion-list {
-    background: transparent !important;
+.post-likes--readonly {
+    cursor: default;
+    opacity: 0.7;
+}
+
+.post-likes-icon {
+    font-size: 1rem;
+    transition: transform 0.1s ease-in-out;
+}
+
+.post-likes-icon--active {
+    transform: scale(1.1);
+}
+
+.post-likes-count {
+    font-size: 0.85rem;
+}
+
+.post-card--own {
+    border: 1px solid #3b82f6;
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.35);
+    transform: translateX(4px);
 }

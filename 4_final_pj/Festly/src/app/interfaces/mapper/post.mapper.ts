@@ -9,7 +9,8 @@ export function mapPostDTOtoEntity(dto: PostDTO): PostEntity {
         title: dto.title,
         eventName: dto.eventName,
         createdAt: dto.createdAt,
-        author: dto.author
+        author: dto.author,
+        imageUrl: dto.imageUrl
     };
 }
 
@@ -20,7 +21,8 @@ export function mapPostEntityToDTO(entity: PostEntity): PostDTO {
         title: entity.title,
         eventName: entity.eventName,
         createdAt: entity.createdAt,
-        author: entity.author
+        author: entity.author,
+        imageUrl: entity.imageUrl
     };
 }
 

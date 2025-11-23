@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { TabsComponent } from './components/tabs/tabs.component';
+import { loginRedirectGuard } from './guards/login-redirect-guard';
 
 export const routes: Routes = [
   {
@@ -9,7 +10,8 @@ export const routes: Routes = [
   },
   {
     path: 'login',
-    loadComponent: () => import('./pages/login/login.page').then( m => m.LoginPage)
+    loadComponent: () => import('./pages/login/login.page').then( m => m.LoginPage),
+    canActivate: [loginRedirectGuard]
   },
   {
     path: 'tabs',

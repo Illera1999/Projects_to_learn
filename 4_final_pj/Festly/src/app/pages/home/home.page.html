@@ -10,8 +10,16 @@
   </ion-refresher>
   <ion-list>
     @for (post of posts(); track post.id; let index = $index) {
-    <ion-item class="post-card">
-      <ion-label>
+    <ion-item class="post-card" [class.post-card--own]="currentUserEmail && post.author === currentUserEmail"
+      lines="none">
+      <ion-label class="post-card__content">
+
+        @if (post.imageUrl) {
+        <div class="post-image-wrapper">
+          <img [src]="post.imageUrl" alt="Imagen del post" class="post-image" />
+        </div>
+        }
+
         <h2 class="post-title">
           {{ post.title }}
         </h2>
@@ -22,7 +30,7 @@
 
         <div class="post-meta">
           <span class="post-author">
-            {{ post.author }}
+            👤 {{ post.author }}
           </span>
           <span class="post-date">
             {{ post.createdAt.toDate() | date: 'mediumDate' }}
@@ -30,9 +38,20 @@
         </div>
 
         <div class="post-footer">
-          <span class="post-likes">
-            ❤️ {{ post.likes }}
+          @if (currentUserId) {
+          <button type="button" class="post-likes" (click)="onToggleLike(post); $event.stopPropagation();">
+            <span class="post-likes-icon" [class.post-likes-icon--active]="isPostLiked(post.id)">
+              {{ isPostLiked(post.id) ? '❤️' : '🤍' }}
+            </span>
+            <span class="post-likes-count">
+              {{ post.likes }}
+            </span>
+          </button>
+          } @else {
+          <span class="post-likes post-likes--readonly">
+            🤍 {{ post.likes }}
           </span>
+          }
         </div>
       </ion-label>
     </ion-item>

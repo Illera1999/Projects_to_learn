@@ -15,19 +15,23 @@
     <ion-list>
       <ion-item>
         <ion-input label="Título" labelPlacement="stacked" type="text" required name="title"
-          [(ngModel)]="formModel.title"></ion-input>
+          [maxlength]="maxTitleLength" [(ngModel)]="formModel.title"></ion-input>
       </ion-item>
+      <div class="char-counter">
+        {{ (formModel.title.length || 0) }} / {{ maxTitleLength }} caracteres
+      </div>
       <p class="field-error" *ngIf="postForm.submitted && postForm.controls['title']?.invalid">
         El título es obligatorio.
       </p>
+
 
       <ion-item>
         <ion-select label="Selecciona evento" labelPlacement="stacked" interface="alert" required name="eventId"
           [(ngModel)]="formModel.selectedEventId">
           @for (event of events; track event.id) {
-            <ion-select-option [value]="event.id">
-              {{ event.eventName }}
-            </ion-select-option>
+          <ion-select-option [value]="event.id">
+            {{ event.eventName }}
+          </ion-select-option>
           }
         </ion-select>
       </ion-item>
@@ -35,6 +39,18 @@
         Debes seleccionar un evento.
       </p>
     </ion-list>
+
+    <ion-item lines="none">
+      <ion-button expand="block" type="button" (click)="onAddPhoto()">
+        Añadir foto
+      </ion-button>
+    </ion-item>
+
+    @if (photoPreview) {
+    <div class="photo-preview-wrapper">
+      <img [src]="photoPreview" alt="Previsualización de la foto" class="photo-preview" />
+    </div>
+    }
 
     <div class="new-post-actions" style="padding: 16px;">
       <ion-button expand="block" type="submit" [disabled]="postForm.invalid">

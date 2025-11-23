@@ -7,4 +7,7 @@ export abstract class PostDataService {
     abstract getPage(page: number, pageSize: number): Observable<PostEntity[]>;
     abstract getEvent(): Observable<EventEntity[]>;
     abstract sendEvent(post: PostEntity): Observable<void>;
+
+    abstract toggleLike(postId: string, userId: string, like: boolean): Observable<void>;
+    abstract getUserLikes(userId: string): Observable<string[]>;
 }

@@ -7,4 +7,5 @@ export interface PostDTO {
     eventName: string;
     createdAt: Timestamp;
     author: string;
+    imageUrl: string | null;
 }

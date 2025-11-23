@@ -16,6 +16,8 @@ import {
 } from '@ionic/angular/standalone';
 import { AuthService } from 'src/app/services/auth-service';
 import { Router } from '@angular/router';
+import { addIcons } from 'ionicons';
+import { eyeOutline, eyeOffOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-login',
@@ -51,7 +53,9 @@ export class LoginPage implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router
-  ) { }
+  ) { 
+    addIcons({'eye-outline': eyeOutline, 'eye-off-outline': eyeOffOutline})
+  }
 
   ngOnInit() {
   }
