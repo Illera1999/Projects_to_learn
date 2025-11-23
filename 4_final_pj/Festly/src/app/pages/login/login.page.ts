@@ -1,18 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
-import { 
-  IonContent, 
-  IonHeader, 
-  IonTitle, 
-  IonToolbar, 
-  IonButton, 
-  IonLabel, 
-  IonList, 
+import {
+  IonContent,
+  IonHeader,
+  IonTitle,
+  IonToolbar,
+  IonButton,
+  IonLabel,
+  IonList,
   IonItem,
   IonSpinner,
   IonInput,
-  IonIcon
+  IonIcon,
+  IonText
 } from '@ionic/angular/standalone';
 import { AuthService } from 'src/app/services/auth-service';
 import { Router } from '@angular/router';
@@ -37,7 +38,8 @@ import { eyeOutline, eyeOffOutline } from 'ionicons/icons';
     IonItem,
     IonSpinner,
     IonInput,
-    IonIcon
+    IonIcon,
+    IonText
   ]
 })
 export class LoginPage implements OnInit {
@@ -53,8 +55,8 @@ export class LoginPage implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router
-  ) { 
-    addIcons({'eye-outline': eyeOutline, 'eye-off-outline': eyeOffOutline})
+  ) {
+    addIcons({ 'eye-outline': eyeOutline, 'eye-off-outline': eyeOffOutline })
   }
 
   ngOnInit() {
@@ -87,7 +89,10 @@ export class LoginPage implements OnInit {
   }
 
   skipLogin(): void {
-    // Entrar en la app sin autenticación
     this.router.navigateByUrl('/tabs/home', { replaceUrl: true });
+  }
+
+  goToRegister(): void {
+    this.router.navigateByUrl('/register');
   }
 }

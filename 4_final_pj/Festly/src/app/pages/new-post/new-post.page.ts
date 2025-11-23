@@ -137,6 +137,8 @@ export class NewPostPage implements OnInit {
             console.log('[NewPost] Post enviado a Firestore correctamente');
             form.resetForm(this.initialFormState);
             this.formModel = { ...this.initialFormState };
+            this.photoPreview = null;
+            this.selectedPhoto = null;
             this.router.navigateByUrl('/tabs/home?refreshPosts=true');
           },
           error: (err) => {

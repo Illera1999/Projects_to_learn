@@ -1,0 +1,72 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Crear cuenta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Crear cuenta</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <section class="auth-wrapper">
+    <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" class="auth-form">
+      <ion-list lines="none" class="auth-card">
+        <ion-item>
+          <ion-label position="stacked">Email</ion-label>
+          <ion-input
+            type="email"
+            required
+            name="email"
+            autocomplete="email"
+            [(ngModel)]="formModel.email">
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Contraseña</ion-label>
+          <ion-input
+            type="password"
+            required
+            name="password"
+            autocomplete="new-password"
+            [(ngModel)]="formModel.password">
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Repite la contraseña</ion-label>
+          <ion-input
+            type="password"
+            required
+            name="repeatPassword"
+            autocomplete="new-password"
+            [(ngModel)]="formModel.repeatPassword">
+          </ion-input>
+        </ion-item>
+
+        <ion-text color="danger" *ngIf="errorMessage" class="auth-error">
+          {{ errorMessage }}
+        </ion-text>
+
+        <ion-button
+          expand="block"
+          type="submit"
+          [disabled]="registerForm.invalid || loading"
+          class="auth-primary">
+          {{ loading ? 'Creando cuenta...' : 'Registrarse' }}
+        </ion-button>
+
+        <ion-button
+          expand="block"
+          fill="clear"
+          type="button"
+          (click)="goToLogin()">
+          Ya tengo cuenta
+        </ion-button>
+      </ion-list>
+    </form>
+  </section>
+</ion-content>

@@ -14,6 +14,10 @@ export const routes: Routes = [
     canActivate: [loginRedirectGuard]
   },
   {
+    path: 'register',
+    loadComponent: () => import('./pages/register/register.page').then( m => m.RegisterPage)
+  },
+  {
     path: 'tabs',
     component: TabsComponent,
     children: [
