@@ -13,9 +13,6 @@ import { PostDataService } from './app/services/data.abstract';
 import { FirestoreService } from './app/services/firestore-service';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 
-import { defineCustomElements } from '@ionic/pwa-elements/loader';
-
-
 bootstrapApplication(AppComponent, {
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
@@ -28,5 +25,3 @@ bootstrapApplication(AppComponent, {
     { provide: PostDataService, useClass: FirestoreService }
   ],
 });
-
-defineCustomElements(window);

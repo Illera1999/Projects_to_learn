@@ -22,7 +22,12 @@ import {
   IonSelectOption,
 } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
+import { ActionSheetController } from '@ionic/angular';
+import { CameraSource } from '@capacitor/camera';
 import { PhotoService, PostPhoto } from 'src/app/services/photo-service';
+
+import { addIcons } from 'ionicons';
+import { camera, images } from 'ionicons/icons';
 
 @Component({
   selector: 'app-new-post',
@@ -66,9 +71,14 @@ export class NewPostPage implements OnInit {
     private readonly router: Router,
     private readonly photoService: PhotoService,
     private readonly authService: AuthService,
+    private readonly actionSheetCtrl: ActionSheetController,
   ) {
     this.authService.user$.subscribe((user: User | null) => {
       this.currentEmail = user?.email ?? null;
+    });
+    addIcons({
+      camera,
+      images,
     });
   }
 
@@ -94,14 +104,42 @@ export class NewPostPage implements OnInit {
   async onAddPhoto(): Promise<void> {
     console.log('[NewPost] onAddPhoto pulsado');
 
-    const photo = await this.photoService.pickPostPhoto();
+    const actionSheet = await this.actionSheetCtrl.create({
+      header: 'Añadir foto',
+      buttons: [
+        {
+          text: 'Hacer foto',
+          icon: 'camera',
+          handler: () => {
+            this.handlePickPhoto(CameraSource.Camera);
+          },
+        },
+        {
+          text: 'Elegir de la galería',
+          icon: 'images',
+          handler: () => {
+            this.handlePickPhoto(CameraSource.Photos);
+          },
+        },
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+        },
+      ],
+    });
+
+    await actionSheet.present();
+  }
+
+  private async handlePickPhoto(source: CameraSource): Promise<void> {
+    const photo = await this.photoService.getPhotoFromSource(source);
     if (!photo) {
       console.log('[NewPost] No se seleccionó ninguna foto');
       return;
     }
 
-    this.selectedPhoto = photo;        // aquí tienes photo.blob o datos extra si los añades en el servicio
-    this.photoPreview = photo.webPath; // y esto para el <img>
+    this.selectedPhoto = photo;
+    this.photoPreview = photo.webPath;
     console.log('[NewPost] Foto seleccionada para previsualización:', this.photoPreview);
   }
 
