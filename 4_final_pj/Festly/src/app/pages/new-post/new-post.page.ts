@@ -66,6 +66,9 @@ export class NewPostPage implements OnInit {
 
   currentEmail: string | null = null;
 
+  nextPostId: number = 1;
+  
+
   constructor(
     private readonly dataService: PostDataService,
     private readonly router: Router,
@@ -80,6 +83,17 @@ export class NewPostPage implements OnInit {
       camera,
       images,
     });
+        this.dataService
+      .getPosts()
+      .subscribe({
+        next: (posts) => {
+          this.nextPostId = posts.length + 1;
+          console.log('[NewPost] nextPostId calculado:', this.nextPostId);
+        },
+        error: (err) => {
+          console.error('[NewPost] Error cargando posts para calcular nextPostId', err);
+        },
+      });
   }
 
   ngOnInit() {
@@ -149,14 +163,12 @@ export class NewPostPage implements OnInit {
     );
 
     const eventName = selectedEvent ? selectedEvent.eventName : '';
-    const maxId = this.events.length;
-    const newId = maxId + 1;
 
     const imageUrl = this.selectedPhoto ? this.selectedPhoto.webPath : null;
 
     if (this.currentEmail) {
       const post: PostEntity = {
-        id: newId.toString(),
+        id: this.nextPostId.toString(),
         title: this.formModel.title,
         likes: 0,
         eventName,
