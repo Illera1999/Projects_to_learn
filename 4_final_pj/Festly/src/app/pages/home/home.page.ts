@@ -24,6 +24,14 @@ import { User } from '@angular/fire/auth';
 import { ActivatedRoute } from '@angular/router';
 
 
+/**
+ * HomePage
+ *
+ * This page is responsible for displaying the main feed of posts.
+ * It loads posts from Firestore, applies simple in-memory pagination,
+ * supports pull-to-refresh and infinite scroll, and allows authenticated
+ * users to like/unlike posts.
+ */
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',

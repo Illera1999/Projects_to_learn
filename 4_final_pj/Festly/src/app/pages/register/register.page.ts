@@ -16,6 +16,14 @@ import {
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth-service';
 
+/**
+ * RegisterPage
+ *
+ * Screen responsible for user account creation. It displays a registration form with email,
+ * password and repeat password fields, performs basic client-side validation and, if valid,
+ * calls `AuthService` to register the user. On success it redirects to the login screen using
+ * the Angular router.
+ */
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',

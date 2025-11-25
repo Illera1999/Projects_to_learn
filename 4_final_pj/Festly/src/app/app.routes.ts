@@ -2,6 +2,19 @@ import { Routes } from '@angular/router';
 import { TabsComponent } from './components/tabs/tabs.component';
 import { loginRedirectGuard } from './guards/login-redirect-guard';
 
+/**
+ * Global application routes
+ *
+ * This application uses a simple authentication + tabs layout structure:
+ * - Unauthenticated users land on the login and register screens.
+ * - Once authenticated, navigation happens inside the `TabsComponent` using child routes
+ *   for the main sections (home feed, festivals map, new post and profile).
+ *
+ * The routing configuration is split so that:
+ * - `/login` and `/register` are standalone pages.
+ * - `/tabs` acts as a shell that hosts the main app via Ionic tabs.
+ * - Child routes under `/tabs` are lazy-loaded to improve initial load time.
+ */
 export const routes: Routes = [
   {
     path: '',

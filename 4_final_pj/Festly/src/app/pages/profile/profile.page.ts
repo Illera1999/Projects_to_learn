@@ -7,6 +7,14 @@ import { AuthService } from 'src/app/services/auth-service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
+
+/**
+ * ProfilePage
+ *
+ * Screen that displays information about the currently authenticated user. It shows basic
+ * profile data (email and user id) and provides actions related to the account, such as
+ * logging out or navigating to the login screen when there is no active session.
+ */
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.page.html',

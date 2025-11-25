@@ -15,6 +15,14 @@ import { navigateOutline } from 'ionicons/icons';
 
 declare const google: any;
 
+/**
+ * FestivalsPage
+ *
+ * This page is responsible for displaying the festivals map.
+ * It loads events from Firestore, renders them as markers on a Google Map,
+ * allows the user to filter by genre, and shows directions from the user's
+ * current location to a selected event.
+ */
 @Component({
   selector: 'app-festivals',
   templateUrl: './festivals.page.html',
@@ -162,7 +170,7 @@ export class FestivalsPage implements OnInit, AfterViewInit {
         console.log('[Events] Eventos cargados para Festivales:', events);
 
         this.events.set(events);
-        this.applyGenreFilter();  // ← aquí decide qué pintar según selectedGenre
+        this.applyGenreFilter();
 
         done?.();
       },
@@ -179,13 +187,11 @@ export class FestivalsPage implements OnInit, AfterViewInit {
       return;
     }
 
-    // Limpiar marcadores anteriores antes de pintar los nuevos
     if (this.eventMarkers.length) {
       console.log('[Events] Limpiando', this.eventMarkers.length, 'marcadores existentes');
       for (const marker of this.eventMarkers) {
         try {
           if (marker) {
-            // Para AdvancedMarkerElement, basta con quitar el mapa
             marker.map = null;
           }
         } catch (err) {
@@ -223,7 +229,6 @@ export class FestivalsPage implements OnInit, AfterViewInit {
         content: eventPin.element,
       });
 
-      // Guardamos la referencia para poder limpiarlo después
       this.eventMarkers.push(marker);
 
       if (typeof marker.addListener === 'function') {
@@ -391,7 +396,6 @@ export class FestivalsPage implements OnInit, AfterViewInit {
       });
     }
 
-    // El mapa ya está listo: intentamos pintar marcadores de eventos si ya están cargados
     this.addEventMarkers();
   }
 }

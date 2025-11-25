@@ -29,6 +29,14 @@ import { PhotoService, PostPhoto } from 'src/app/services/photo-service';
 import { addIcons } from 'ionicons';
 import { camera, images } from 'ionicons/icons';
 
+/**
+ * NewPostPage
+ *
+ * Screen responsible for creating a new post. It allows the user to create a post by selecting an event,
+ * adding a title and an optional photo. It displays a form with the required fields.
+ * Uses `AuthService` to associate the post with the currently logged-in user and `PostDataService`
+ * to persist the post in Firestore.
+ */
 @Component({
   selector: 'app-new-post',
   templateUrl: './new-post.page.html',

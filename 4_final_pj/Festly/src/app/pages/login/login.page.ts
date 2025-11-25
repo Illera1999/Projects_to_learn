@@ -20,6 +20,13 @@ import { Router } from '@angular/router';
 import { addIcons } from 'ionicons';
 import { eyeOutline, eyeOffOutline } from 'ionicons/icons';
 
+/**
+ * LoginPage
+ *
+ * This page is responsible for handling user authentication via email
+ * and password. It displays the login form, manages loading and error
+ * states, and redirects the user to the main tabs area on success.
+ */
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
